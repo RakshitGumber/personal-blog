@@ -14,7 +14,7 @@ const Home = () => {
   useEffect(() => {
     const getData = async () => {
       const data = await getBlogs();
-      console.log(data);
+      setBlogs(data);
     };
     if (loggedinUser) {
       getData();
@@ -40,6 +40,10 @@ const Home = () => {
       ) : (
         <Link to="/login">Login</Link>
       )}
+      {blogs &&
+        blogs.map((blog: any, index: number) => (
+          <h2 key={index}>{blog.name}</h2>
+        ))}
     </div>
   );
 };
