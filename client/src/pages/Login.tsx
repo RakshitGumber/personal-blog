@@ -1,10 +1,48 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { loginUser } from "../api";
+
+const initialData = {
+  email: "",
+  password: "",
+};
 
 const Login = () => {
+  const [formData, setFormData] = useState(initialData);
+  const navigate = useNavigate();
+
+  const handleChange = (e: any) => {
+    const { name, value } = e.target;
+    const data = { ...formData };
+    // @ts-ignore
+    data[name] = value;
+    setFormData(data);
+  };
+
+  const handleLogin = async (e: any) => {
+    e.preventDefault();
+    const { email, password } = formData;
+    if (email === "" || password === "") {
+      alert("All fields are required");
+      setFormData(initialData);
+    }
+    try {
+      const { data } = await loginUser(formData);
+      if (data) {
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("user", data.username);
+        setTimeout(() => {
+          navigate("/home");
+        }, 1000);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="container">
       <h1>Login</h1>
-      <form>
+      <form onSubmit={handleLogin}>
         <div>
           <label htmlFor="email">Email</label>
           <input
@@ -12,6 +50,8 @@ const Login = () => {
             name="email"
             autoFocus
             placeholder="Eg. jdoe@example.com"
+            value={formData.email}
+            onChange={handleChange}
           />
         </div>
         <div>
@@ -21,11 +61,13 @@ const Login = () => {
             name="password"
             autoFocus
             placeholder="Enter a Password"
+            value={formData.password}
+            onChange={handleChange}
           />
         </div>
-        <button>Sign Up</button>
+        <button>Login</button>
         <span>
-          Already a user? <Link to="/signup">Sign Up</Link>
+          Create an account? <Link to="/signup">Sign Up</Link>
         </span>
       </form>
     </div>

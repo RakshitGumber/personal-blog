@@ -2,7 +2,6 @@ import { Router } from "express";
 import { User } from "../model/user";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { generateToken } from "../utils/token";
 import { loginValidation, signupValidation } from "../middleware/validator";
 
 export const userRouter = Router();
