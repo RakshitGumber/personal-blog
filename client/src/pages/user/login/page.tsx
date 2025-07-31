@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { loginUser } from "../api";
+import { loginUser } from "@/api";
 
 const initialData = {
   email: "",
@@ -32,7 +32,7 @@ const Login = () => {
         localStorage.setItem("token", data.token);
         localStorage.setItem("user", data.username);
         setTimeout(() => {
-          navigate("/home");
+          navigate("/");
         }, 1000);
       }
     } catch (error) {
@@ -67,7 +67,7 @@ const Login = () => {
         </div>
         <button>Login</button>
         <span>
-          Create an account? <Link to="/signup">Sign Up</Link>
+          Create an account? <Link to="/user/signup">Sign Up</Link>
         </span>
       </form>
     </div>

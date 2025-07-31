@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { signupUser } from "../api";
+import { signupUser } from "@/api";
 
 const initialData = {
   username: "",
@@ -32,7 +32,7 @@ const Signup = () => {
     if (data.success) {
       alert(data.message);
       setTimeout(() => {
-        navigate("/login");
+        navigate("/user/login");
       }, 2000);
     }
   };
@@ -77,7 +77,7 @@ const Signup = () => {
         </div>
         <button>Sign Up</button>
         <span>
-          Already a user? <Link to="/login">Login</Link>
+          Already a user? <Link to="/user/login">Login</Link>
         </span>
       </form>
     </div>
