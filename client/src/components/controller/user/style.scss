@@ -1,0 +1,51 @@
+@use "../../../stylesheets/variables.scss" as v;
+
+.user-actions {
+  position: relative;
+}
+
+.profile-options {
+  position: absolute;
+  top: 35px;
+  width: 180px;
+  right: -15px;
+  background-color: v.$black;
+  padding: 0.1rem 0.75rem 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: 0px 0px 8px 8px;
+
+  ul {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    list-style: none;
+
+    li {
+      display: flex;
+      align-items: center;
+
+      width: 100%;
+      border-radius: 8px;
+
+      button {
+        background: none;
+        color: v.$white;
+        font-size: 0.875rem;
+        font-family: v.$mulish;
+        font-weight: bold;
+        width: 100%;
+        text-align: start;
+        padding: 0.35rem 0.75rem;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #66666666;
+        }
+      }
+    }
+  }
+}

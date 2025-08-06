@@ -143,4 +143,16 @@
       background-color: #ffffff33;
     }
   }
+
+  &-primary {
+    font-size: 0.875rem;
+    font-family: v.$mulish;
+    font-weight: bold;
+    background-color: v.$primary;
+    padding: 0.25rem 1.25rem;
+
+    &:hover {
+      background-color: #2cacad56;
+    }
+  }
 }

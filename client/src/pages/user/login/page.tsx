@@ -29,8 +29,6 @@ const Login = () => {
     try {
       const { data } = await loginUser(formData);
       if (data) {
-        localStorage.setItem("token", data.token);
-        localStorage.setItem("user", data.username);
         setTimeout(() => {
           navigate("/");
         }, 1000);
