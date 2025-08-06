@@ -8,6 +8,9 @@
   padding: 0 2rem;
   display: flex;
   justify-content: center;
+  @media screen and (max-width: 600px) {
+    height: 36px;
+  }
 }
 
 .nav {
@@ -17,7 +20,14 @@
     padding: 0.75rem 2.25rem;
     justify-content: space-between;
     align-items: center;
-    border-right: 1px solid v.$gray;
+
+    @media screen and (max-width: 600px) {
+      padding: 0;
+    }
+
+    @media screen and (min-width: 1200px) {
+      border-right: 1px solid v.$gray;
+    }
 
     .date-string {
       font-size: 0.875rem;
@@ -29,6 +39,10 @@
       display: flex;
       align-items: center;
       gap: 0.75rem;
+
+      @media screen and (max-width: 600px) {
+        display: none;
+      }
 
       h2 {
         font-size: 0.875rem;
@@ -66,6 +80,10 @@
         display: flex;
         align-items: center;
         gap: 0.5rem;
+
+        @media screen and (max-width: 600px) {
+          display: none;
+        }
       }
 
       .user-profile {
@@ -79,6 +97,15 @@
         font-family: v.$mulish;
         font-weight: bold;
         cursor: pointer;
+        span {
+          @media screen and (max-width: 600px) {
+            display: none;
+          }
+        }
+
+        @media screen and (max-width: 600px) {
+          padding: 0;
+        }
 
         .user-avatar {
           width: 24px;
@@ -97,8 +124,15 @@
     display: flex;
     padding: 0.75rem 2.25rem;
     gap: 2.25rem;
-    border-left: 1px solid v.$gray;
+    border-left: none;
+
     align-items: center;
+    display: none;
+
+    @media screen and (min-width: 1200px) {
+      display: flex;
+      border-left: 1px solid v.$gray;
+    }
 
     h2 {
       font-weight: bold;

@@ -68,7 +68,10 @@ userRouter.post("/login", loginValidation, async (req, res) => {
     return res.status(200).json({
       message: "Login successfully",
       success: true,
-      data: { token, username: userExists.username, email },
+      data: {
+        token,
+        user: { username: userExists.username, _id: userExists._id, email },
+      },
     });
   } catch (error) {
     return res
