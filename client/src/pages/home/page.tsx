@@ -1,10 +1,10 @@
-import { Navbar } from "@/components/core";
+import { Header } from "@/components/core";
 import "./style.scss";
 
 const Root = () => {
   return (
     <main className="home">
-      <Navbar />
+      <Header />
     </main>
   );
 };
